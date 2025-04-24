@@ -24,9 +24,12 @@ const Admin = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/verify-admin", {
-        secretKey: secretKey,
-      });
+      const response = await axios.post(
+        "https://backend-ebon-theta-80.vercel.app/verify-admin",
+        {
+          secretKey: secretKey,
+        }
+      );
 
       if (response.data.success) {
         toast.success("Welcome to the authorized panel! 🚀");

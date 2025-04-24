@@ -26,14 +26,17 @@ const RegistrationForm = () => {
         return toast.error("All required fields must be filled");
       }
 
-      const response = await axios.post("http://localhost:8000/register", {
-        name,
-        email,
-        phone,
-        collegeName,
-        branch,
-        teamName,
-      });
+      const response = await axios.post(
+        "https://backend-ebon-theta-80.vercel.app/register",
+        {
+          name,
+          email,
+          phone,
+          collegeName,
+          branch,
+          teamName,
+        }
+      );
 
       if (response.data.success) {
         toast.success("Your response has been recorded");

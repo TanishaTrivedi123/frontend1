@@ -19,7 +19,9 @@ const ContactPageData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/contact-data");
+        const res = await axios.get(
+          "https://backend-ebon-theta-80.vercel.app/contact-data"
+        );
         setContactData(res.data);
         setLoading(false);
       } catch (err) {
