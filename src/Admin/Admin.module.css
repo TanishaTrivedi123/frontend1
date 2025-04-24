@@ -1,0 +1,124 @@
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  text-align: center;
+}
+
+.adminContainer h3 {
+  color: #e2fdfb; /* Light blue for better contrast */
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-family: "Poppins", "sans-serif";
+}
+
+.adminContainer input {
+  width: 300px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: #222;
+  color: white;
+  outline: none;
+  text-align: center;
+  position: relative;
+  font-family: "Inter", "sans-serif";
+}
+
+.adminContainer button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: #ff6700;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.adminContainer button:hover {
+  background: #ff4500;
+}
+
+.inputContainer {
+  position: relative;
+  width: 300px; /* Ensure same as input width */
+}
+
+.inputContainer input {
+  width: 100%;
+  padding-right: 40px; /* Give space for icon inside input */
+}
+
+/* Icons (Default for Desktop) */
+.icons {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #bbb;
+  transition: 0.3s ease-in-out;
+  z-index: 10;
+}
+
+/* Hover effect */
+.icons:hover {
+  color: white;
+}
+
+/* Chrome & Safari (WebKit browsers) */
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none;
+}
+
+/* Internet Explorer / Edge (older) */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+/* Responsive Adjustments */
+
+/* For Tablets (Width <= 768px) */
+@media (max-width: 768px) {
+  .icons {
+    right: 8%;
+    font-size: 1.3rem;
+  }
+}
+
+/* For Mobile Devices (Width <= 480px) */
+@media (max-width: 480px) {
+  .icons {
+    right: 5%;
+    font-size: 1.2rem;
+  }
+
+  .adminContainer input {
+    width: 250px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  input {
+    width: 250px;
+    font-size: 0.9rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+}

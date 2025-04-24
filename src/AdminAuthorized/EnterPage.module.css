@@ -1,0 +1,33 @@
+.enterPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.enterPage button {
+  width: 250px;
+  padding: 15px 20px;
+  margin: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: #ff8c00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  font-family: "Inter", "sans-serif";
+}
+
+.enterPage button:hover {
+  background: #ff6b00;
+  transform: scale(1.05);
+}
+
+.enterPage button:active {
+  background: #d45500;
+  transform: scale(0.98);
+}
