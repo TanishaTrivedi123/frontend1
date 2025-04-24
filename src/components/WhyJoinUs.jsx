@@ -108,7 +108,7 @@ const WhyJoinUs = () => {
             <div className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[550px] bg-gradient-to-br from-blue-400/10 to-purple-600/10 rounded-3xl shadow-lg overflow-hidden group transition-all duration-500">
               {/* Simplified image container with responsive object-position */}
               <img
-                src="/src/assets/HomePageImage.jpeg"
+                src="HomePageImage.jpeg"
                 alt="People collaborating"
                 className="why-join-image h-full w-full object-cover object-top sm:object-center transition-all duration-500 group-hover:scale-105"
                 loading="lazy"

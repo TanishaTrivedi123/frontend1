@@ -158,7 +158,7 @@ const About = () => {
         <div className="mt-16 w-full">
           <div className="w-full h-auto rounded-2xl overflow-hidden">
             <img
-              src="/src/assets/AboutPageImg.jpeg"
+              src="AboutPageImg.jpeg"
               className="w-full max-h-[70vh] object-cover mx-auto"
               alt="Innovixus Team"
               style={{

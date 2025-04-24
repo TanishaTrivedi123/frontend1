@@ -13,19 +13,19 @@ const HomeCard = () => {
       id: 1,
       name: "Harsh Jha",
       role: "x-GDSC Lead / Founder",
-      image: "/src/assets/Harsh Bhaiya.jpeg",
+      image: "Harsh Bhaiya.jpeg",
     },
     {
       id: 2,
       name: "Avni Bhargav",
       role: "Co-Founder / Advisor",
-      image: "/src/assets/Avni Didi.png",
+      image: "Avni Didi.png",
     },
     {
       id: 3,
       name: "Rashmeet Kaur",
       role: "Advisor",
-      image: "/src/assets/Rashmeet Didi.jpeg",
+      image: "Rashmeet Didi.jpeg",
     },
   ];
 

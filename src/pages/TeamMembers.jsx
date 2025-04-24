@@ -9,17 +9,17 @@ const TeamMembers = () => {
     {
       name: "Ansh Pandey",
       role: "Lead / Full Stack Developer",
-      image: "../src/assets/Ansh.jpeg",
+      image: "Ansh.jpeg",
     },
     {
       name: "Tanisha Trivedi",
       role: "Co-Lead / Full Stack Developer",
-      image: "../src/assets/Tanisha.jpeg",
+      image: "Tanisha.jpeg",
     },
     {
       name: "Vishal Hardiya",
       role: "Outreach Lead / Sponsorship Head",
-      image: "../src/assets/Vishal.jpeg",
+      image: "Vishal.jpeg",
     },
   ];
 
@@ -27,57 +27,57 @@ const TeamMembers = () => {
     {
       name: "Manan Jethwa",
       role: "Graphics Lead / DS & ML",
-      image: "../src/assets/Manan.jpeg",
+      image: "Manan.jpeg",
     },
     {
       name: "Mahima Sharma",
       role: "Social Media & Content Lead/ DS & ML",
-      image: "../src/assets/Mahima.jpeg",
+      image: "Mahima.jpeg",
     },
     {
       name: "Harish Vishvakarma",
       role: "Technical Lead / DS & ML",
-      image: "../src/assets/Harish.jpeg",
+      image: "Harish.jpeg",
     },
     {
       name: "Kapil Satyarthi",
       role: "Video Editing Lead",
-      image: "../src/assets/Kapil.jpeg",
+      image: "Kapil.jpeg",
     },
     {
       name: "Shruti Tiwari",
       role: "Management Support / Java Full Stack",
-      image: "../src/assets/Shruti.jpeg",
+      image: "Shruti.jpeg",
     },
     {
       name: "Kshitij Choudhary",
       role: "Tech Support",
-      image: "../src/assets/Kshitij.jpeg",
+      image: "Kshitij.jpeg",
     },
     {
       name: "Harsh Thakariya",
       role: "Evaluation Team / DS & ML",
-      image: "../src/assets/Harsh.jpeg",
+      image: "Harsh.jpeg",
     },
     {
       name: "Akanksha Tiwari",
       role: "Registration & Volunteer Management",
-      image: "../src/assets/Aakanksha.jpeg",
+      image: "Aakanksha.jpeg",
     },
     {
       name: "Malika Thakur",
       role: "Event Management & Coordination",
-      image: "../src/assets/Malika.jpeg",
+      image: "Malika.jpeg",
     },
     {
       name: "Atul Malviya",
       role: "Event Execution Support / DS & ML",
-      image: "../src/assets/Atul.jpeg",
+      image: "Atul.jpeg",
     },
     {
       name: "Prajwal Bharambe",
       role: "Full Stack Developer",
-      image: "../src/assets/Prajwal.jpeg",
+      image: "Prajwal.jpeg",
     },
   ];
 
