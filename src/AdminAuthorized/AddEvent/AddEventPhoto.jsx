@@ -62,12 +62,7 @@ const AddEventPhoto = () => {
     try {
       const response = await axios.post(
         "https://backend-ebon-theta-80.vercel.app/addevent",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        formData
       );
 
       if (response.data.success) {
