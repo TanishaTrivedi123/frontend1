@@ -64,28 +64,17 @@ const AddEventPhoto = () => {
         "https://backend-ebon-theta-80.vercel.app/addevent",
         formData
       );
-
-      if (response.data.success) {
-        toast.success("Successfully added on the page");
-
-        const savedEvent = response.data.event;
-        dispatch(addEvent(savedEvent));
-
-        // ✅ Clear all inputs and preview
-        titleRef.current.value = "";
-        inputDateRef.current.value = "";
-        inputDesRef.current.value = "";
-        setImage(null);
-        setPreviewUrl(null);
-
-        // ✅ Navigate to home
-        navigate("/");
-      } else {
-        toast.error("Something went wrong");
-      }
+      console.log("Event added:", response.data);
     } catch (error) {
-      console.error("Axios error:", error.response?.data || error.message);
-      toast.error("Server error");
+      // ✅ Log detailed Axios error
+      if (error.response) {
+        console.error("Server responded with status:", error.response.status);
+        console.error("Response data:", error.response.data);
+      } else if (error.request) {
+        console.error("No response received:", error.request);
+      } else {
+        console.error("Error setting up request:", error.message);
+      }
     }
   };
 
