@@ -53,6 +53,7 @@ const AddEventPhoto = () => {
       return;
     }
 
+    // Prepare FormData
     const formData = new FormData();
     formData.append("title", title);
     formData.append("date", date);
@@ -60,11 +61,15 @@ const AddEventPhoto = () => {
     formData.append("image", image);
 
     try {
+      // Make API request to the backend
       const response = await axios.post(
-        "https://backend-ebon-theta-80.vercel.app/addevent",
-        formData
+        "https://backend-ebon-theta-80.vercel.app/addevent", // Replace with your backend URL
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } } // Ensure correct header for file upload
       );
       console.log("Event added:", response.data);
+      toast.success("Event added successfully!");
+      dispatch(addEvent(response.data.event)); // Optionally dispatch to Redux store if needed
     } catch (error) {
       // ✅ Log detailed Axios error
       if (error.response) {
@@ -75,6 +80,7 @@ const AddEventPhoto = () => {
       } else {
         console.error("Error setting up request:", error.message);
       }
+      toast.error("Failed to add event. Please try again.");
     }
   };
 
