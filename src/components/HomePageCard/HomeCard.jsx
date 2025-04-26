@@ -11,21 +11,21 @@ const HomeCard = () => {
   const teamMembers = [
     {
       id: 1,
+      name: "Laksh Dilliwal",
+      role: "Founder of tech club",
+      image: "Laksh Dilliwal.jpeg",
+    },
+    {
+      id: 2,
       name: "Harsh Jha",
       role: "x-GDSC Lead / Founder",
       image: "Harsh Bhaiya.jpeg",
     },
     {
-      id: 2,
+      id: 3,
       name: "Avni Bhargav",
       role: "Co-Founder / Advisor",
       image: "Avni Didi.png",
-    },
-    {
-      id: 3,
-      name: "Rashmeet Kaur",
-      role: "Advisor",
-      image: "Rashmeet Didi.jpeg",
     },
   ];
 

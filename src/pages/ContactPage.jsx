@@ -47,11 +47,14 @@ const ContactPage = () => {
         return toast.error("All fields are required");
       }
 
-      const response = await axios.post("http://localhost:8000/contact", {
-        name: name,
-        email: email,
-        message: message,
-      });
+      const response = await axios.post(
+        "https://backend-ebon-theta-80.vercel.app/contact",
+        {
+          name: name,
+          email: email,
+          message: message,
+        }
+      );
 
       if (response.data.success) {
         toast.success("your response is sent");
