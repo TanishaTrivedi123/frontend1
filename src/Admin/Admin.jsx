@@ -25,7 +25,8 @@ const Admin = () => {
 
     try {
       const response = await axios.post(
-        "https://backend-ebon-theta-80.vercel.app/verify-admin",
+        // "https://backend-ebon-theta-80.vercel.app/verify-admin",
+        "http://localhost:8000/verify-admin",
         {
           secretKey: secretKey,
         }
