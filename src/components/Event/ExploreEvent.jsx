@@ -13,13 +13,11 @@ const ExploreEvent = () => {
   const cardsRef = useRef([]);
   const isAdmin = localStorage.getItem("isAdmin") === "true";
 
-  const techIcons = [<FaMicrochip />, <FaCode />, <FaCalendarAlt />];
-
   const handleDelete = (id, index) => {
     const cardToRemove = cardsRef.current[index];
 
     if (cardToRemove) {
-      // ✅ Safe check
+      // GSAP animation for smooth delete effect
       gsap.to(cardToRemove, {
         scale: 0.5,
         opacity: 0,
@@ -27,6 +25,7 @@ const ExploreEvent = () => {
         duration: 0.4,
         ease: "power2.inOut",
         onComplete: () => {
+          // Dispatch the delete event action after animation
           dispatch(deleteEvent(id));
         },
       });
@@ -45,7 +44,6 @@ const ExploreEvent = () => {
 
     cardsRef.current.forEach((card, index) => {
       if (card) {
-        // ✅ Safe check
         gsap.fromTo(
           card,
           {
@@ -83,14 +81,14 @@ const ExploreEvent = () => {
           [...events].reverse().map((item, index) => (
             <div
               className={styles.card}
-              key={item.id || index} // ✅ Safe key (fallback index if id missing)
+              key={item._id || index} // Use _id for key
               ref={(el) => (cardsRef.current[index] = el)}
             >
               <div className={styles.card_glow}></div>
 
               <div className={styles.img}>
                 <img
-                  src={item.imageUrl ? item.imageUrl : "/dummy.jpg"} // ✅ No optional chaining
+                  src={item.imageUrl ? item.imageUrl : "/dummy.jpg"} // Fallback image
                   alt="event"
                 />
               </div>
@@ -112,7 +110,7 @@ const ExploreEvent = () => {
               {isAdmin && (
                 <RxCross2
                   className={styles.deleteIcon}
-                  onClick={() => handleDelete(item.id, index)}
+                  onClick={() => handleDelete(item._id, index)} // Pass _id for deletion
                 />
               )}
             </div>
