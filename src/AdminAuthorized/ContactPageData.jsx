@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { FaUser, FaEnvelope, FaComment, FaCalendarAlt } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
 
 const ContactPageData = () => {
   const navigate = useNavigate();

@@ -1,19 +1,18 @@
 import React, { useState, useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import axios from "axios";
-import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { addContactData } from "../store/ContactSlice";
+import { toast } from "react-toastify";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const ContactPage = () => {
+  const dispatch = useDispatch();
   const headingRef = useRef();
   const subTextRef = useRef();
-  const formRef = useRef(); // NEW
+  const formRef = useRef();
   const nameRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
-  const dispatch = useDispatch();
 
   useGSAP(() => {
     gsap.from(headingRef.current, {
@@ -50,22 +49,20 @@ const ContactPage = () => {
       return toast.error("All fields are required");
     }
 
-    // Correct dispatch
+    // Dispatch the action to add contact data to Redux store
     dispatch(addContactData({ name, email, message }));
 
-    // Clear fields
+    // Clear the form after submission
     nameRef.current.value = "";
     emailRef.current.value = "";
     messageRef.current.value = "";
+
+    // Show success toast
     toast.success("Your response is saved");
   };
 
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0d0d0d] via-[#121212] to-[#1a1a1a] text-white pt-24 px-6 sm:px-12 font-inter overflow-hidden">
-      {/* Glowing Background Circles */}
-      <div className="absolute -top-28 -left-20 w-[30rem] h-[30rem] bg-cyan-500 rounded-full opacity-30 blur-3xl animate-pulse mix-blend-lighten z-0"></div>
-      <div className="absolute -bottom-24 -right-16 w-[32rem] h-[32rem] bg-green-400 rounded-full opacity-20 blur-2xl animate-ping mix-blend-lighten z-0"></div>
-
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl flex flex-col lg:flex-row items-center justify-center gap-16 mb-20">
         {/* Left Section */}

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  contactData: [], // 👈 Ab array hai
+  contactData: [], // Initial empty array
 };
 
 const ContactSlice = createSlice({
@@ -9,8 +9,7 @@ const ContactSlice = createSlice({
   initialState,
   reducers: {
     addContactData: (state, action) => {
-      state.contactData.push(action.payload);
-      // 👆 naye data ko array me push kar rahe hai
+      state.contactData = [...state.contactData, action.payload]; // Ensure we add new data without replacing old data
     },
   },
 });
