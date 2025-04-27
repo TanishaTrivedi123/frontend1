@@ -17,24 +17,6 @@ const ContactPageData = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          "https://backend-ebon-theta-80.vercel.app/contact-data"
-        );
-        setContactData(res.data);
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching contact data:", err);
-        setError("Failed to load contact submissions");
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
     const admin = localStorage.getItem("isAdmin");
     const expireTime = localStorage.getItem("expireTime");
     const currentTime = new Date().getTime();
@@ -42,9 +24,25 @@ const ContactPageData = () => {
     if (admin !== "true" || !expireTime || currentTime > parseInt(expireTime)) {
       localStorage.removeItem("isAdmin");
       localStorage.removeItem("expireTime");
-      navigate("/admin"); // 🔐 Redirect to login if expired
+      navigate("/admin");
     }
   }, [navigate]);
+
+  useEffect(() => {
+    const fetchContactData = async () => {
+      try {
+        const response = await axios.get("/api/contact"); // 👈 your API route
+        setContactData(response.data.contacts || []);
+        setLoading(false);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to fetch contact form submissions");
+        setLoading(false);
+      }
+    };
+
+    fetchContactData();
+  }, []);
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleString();

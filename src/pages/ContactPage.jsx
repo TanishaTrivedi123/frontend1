@@ -3,6 +3,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { addContactData } from "../store/ContactSlice";
 
 const ContactPage = () => {
   const headingRef = useRef();
@@ -11,6 +13,7 @@ const ContactPage = () => {
   const nameRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
+  const dispatch = useDispatch();
 
   useGSAP(() => {
     gsap.from(headingRef.current, {
@@ -42,31 +45,19 @@ const ContactPage = () => {
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const message = messageRef.current.value;
-    try {
-      if (!name || !email || !message) {
-        return toast.error("All fields are required");
-      }
 
-      const response = await axios.post(
-        "https://backend-ebon-theta-80.vercel.app/contact",
-        {
-          name: name,
-          email: email,
-          message: message,
-        }
-      );
-
-      if (response.data.success) {
-        toast.success("your response is sent");
-        nameRef.current.value = "";
-        emailRef.current.value = "";
-        messageRef.current.value = "";
-      } else {
-        toast.error("internal server error");
-      }
-    } catch (error) {
-      console.log(error);
+    if (!name || !email || !message) {
+      return toast.error("All fields are required");
     }
+
+    // Correct dispatch
+    dispatch(addContactData({ name, email, message }));
+
+    // Clear fields
+    nameRef.current.value = "";
+    emailRef.current.value = "";
+    messageRef.current.value = "";
+    toast.success("Your response is saved");
   };
 
   return (

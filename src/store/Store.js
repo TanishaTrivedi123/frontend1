@@ -5,6 +5,7 @@ import { persistReducer, persistStore } from "redux-persist";
 
 import eventReducer from "../store/EventSlice";
 import AddUpcomingReducer from "../store/AddEventSlice";
+import contactReducer from "../store/ContactSlice";
 
 const persistConfig = {
   key: "root",
@@ -14,6 +15,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   event: eventReducer,
   upcomingEvent: AddUpcomingReducer,
+  contact: contactReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
