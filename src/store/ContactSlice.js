@@ -9,7 +9,7 @@ const ContactSlice = createSlice({
   initialState,
   reducers: {
     addContactData: (state, action) => {
-      state.contactData = [...state.contactData, action.payload]; // Ensure we add new data without replacing old data
+      state.contactData.push(action.payload); // Ensure we add new data without replacing old data
     },
   },
 });

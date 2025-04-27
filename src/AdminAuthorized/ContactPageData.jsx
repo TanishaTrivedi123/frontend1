@@ -26,7 +26,7 @@ const ContactPageData = () => {
           Contact Form Submissions
         </h2>
 
-        {contactData.length > 0 ? (
+        {Array.isArray(contactData) && contactData.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="min-w-full bg-white border border-gray-300">
               <thead>
@@ -53,7 +53,10 @@ const ContactPageData = () => {
                     </td>
                     <td className="py-3 px-4 border-b">{data.message}</td>
                     <td className="py-3 px-4 border-b">
-                      {new Date().toLocaleString()}
+                      {/* Ensure data.submittedOn is in a valid timestamp format */}
+                      {data.submittedOn
+                        ? new Date(data.submittedOn).toLocaleString()
+                        : "N/A"}
                     </td>
                   </tr>
                 ))}
