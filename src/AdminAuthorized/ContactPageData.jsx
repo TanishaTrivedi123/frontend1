@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   FaUser,
   FaEnvelope,
@@ -8,13 +9,12 @@ import {
   FaExclamationTriangle,
   FaSpinner,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 
 const ContactPageData = () => {
-  const [contactData, setContactData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  const { contactData, loading, error } = useSelector((state) => state.contact);
+  // 👆 Redux se data le rahe hai
 
   useEffect(() => {
     const admin = localStorage.getItem("isAdmin");
@@ -27,22 +27,6 @@ const ContactPageData = () => {
       navigate("/admin");
     }
   }, [navigate]);
-
-  useEffect(() => {
-    const fetchContactData = async () => {
-      try {
-        const response = await axios.get("/api/contact"); // 👈 your API route
-        setContactData(response.data.contacts || []);
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to fetch contact form submissions");
-        setLoading(false);
-      }
-    };
-
-    fetchContactData();
-  }, []);
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleString();
